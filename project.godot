@@ -14,11 +14,14 @@ config/name="SqliteGUI"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InitDatabase="*res://scripts/init_database.gd"
+
 [display]
 
 window/size/viewport_width=360
 window/size/viewport_height=800
-window/size/mode=3
 window/stretch/mode="viewport"
 
 [editor]
