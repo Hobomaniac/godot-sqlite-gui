@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cucginup8mbs3"]
+[gd_scene load_steps=5 format=3 uid="uid://cucginup8mbs3"]
+
+[ext_resource type="Script" path="res://scripts/flash_card_scene.gd" id="1_kycd4"]
 
 [sub_resource type="FontVariation" id="FontVariation_7gsxv"]
 spacing_top = 60
 spacing_bottom = 60
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsmsv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_omv8i"]
 
 [node name="FlashCardScene" type="Control"]
 layout_mode = 3
@@ -11,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kycd4")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,30 +35,37 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="FlashCardButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_7gsxv")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wsmsv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_omv8i")
 text = "Hello"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PrevButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Prev"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NextButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "Next"
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="EditCardsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_font_sizes/font_size = 40
 text = "Edit Cards"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/FlashCardButton" to="." method="_on_flash_card_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/PrevButton" to="." method="_on_prev_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="." method="_on_next_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/EditCardsButton" to="." method="_on_edit_cards_button_button_up"]

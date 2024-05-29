@@ -89,5 +89,4 @@ func _on_edit_trans_word_button_button_up():
 
 
 func _on_go_back_button_button_up():
-	print("You can't go back yet.")
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/flash_card_scene.tscn")
