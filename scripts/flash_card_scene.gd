@@ -9,8 +9,12 @@ var current_card_index: int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	word_database = InitDatabase.word_data
-	word_database.query("SELECT * FROM words;")
-	cards_array = word_database.query_result
+	var check_words_exist: bool = word_database.query("SELECT * FROM words;")
+	if check_words_exist:
+		cards_array = word_database.query_result
+	else:
+		print("No words exists in database.")
+		cards_array = []
 	flash_card = $MarginContainer/VBoxContainer/FlashCardButton
 	
 	current_card_index = 0

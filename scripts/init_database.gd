@@ -11,6 +11,7 @@ func _ready():
 		if word_data.open_db():
 			print("Opened database")
 			break
+		word_data.close_db()
 		if !DirAccess.dir_exists_absolute("user://data/"):
 			DirAccess.make_dir_absolute("user://data/")
 		DirAccess.copy_absolute("res://data/data.db", 'user://data/data.db')

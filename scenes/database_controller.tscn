@@ -68,7 +68,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "Create Table"
 
-[node name="DeleteTableButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="DeleteTableButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer3" groups=["invisible_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -78,13 +78,13 @@ text = "Delete Table"
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="AddRowButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="AddRowButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4" groups=["invisible_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
 text = "Add Row"
 
-[node name="DeleteRowButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="DeleteRowButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4" groups=["invisible_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24
@@ -94,7 +94,7 @@ text = "Delete Row"
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="EditTransWordButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="EditTransWordButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5" groups=["invisible_buttons"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 24

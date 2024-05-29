@@ -8,7 +8,18 @@ func _ready():
 	word_database = InitDatabase.word_data
 	main_word_text = $MarginContainer/VBoxContainer/HBoxContainer/MainWordText
 	trans_word_text = $MarginContainer/VBoxContainer/HBoxContainer2/TransWordText
+	update_screen()
 
+
+func update_screen():
+	var check = word_database.query("SELECT main_word FROM words;")
+	
+	if check:
+		for node in get_tree().get_nodes_in_group("invisible_buttons"):
+			node.visible = true
+	else:
+		for node in get_tree().get_nodes_in_group("invisible_buttons"):
+			node.visible = false
 
 func _on_create_table_button_button_up():
 	var table_name = "words"
@@ -19,6 +30,7 @@ func _on_create_table_button_button_up():
 	var check = word_database.create_table("words", table_dict)
 	if check:
 		print("Created table 'words'")
+		update_screen()
 	else:
 		print("Could not create table 'words'")
 
@@ -27,6 +39,7 @@ func _on_delete_table_button_button_up():
 	var check = word_database.drop_table("words")
 	if check:
 		print("Dropped table 'words'")
+		update_screen()
 	else:
 		print("Could not drop table 'words'")
 
