@@ -23,7 +23,9 @@ InitDatabase="*res://scripts/init_database.gd"
 
 window/size/viewport_width=360
 window/size/viewport_height=800
+window/size/mode=3
 window/stretch/mode="viewport"
+window/handheld/orientation=1
 
 [editor]
 
@@ -37,3 +39,4 @@ enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

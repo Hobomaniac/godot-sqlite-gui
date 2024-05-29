@@ -26,18 +26,27 @@ func update_card(state: String):
 		print(" That state does not exist!")
 
 func _on_prev_button_button_up():
+	if cards_array.size() == 0:
+		return
+		
 	if current_card_index > 0:
 		current_card_index -= 1
 	update_card("main_word")
 
 
 func _on_next_button_button_up():
+	if cards_array.size() == 0:
+		return
+		
 	if current_card_index < cards_array.size() - 1:
 		current_card_index += 1
 	update_card("main_word")
 
 
 func _on_flash_card_button_button_up():
+	if cards_array.size() == 0:
+		return
+		
 	if flash_card.text == cards_array[current_card_index]["main_word"]:
 		flash_card.text = cards_array[current_card_index]["trans_word"]
 	elif flash_card.text == cards_array[current_card_index]["trans_word"]:
